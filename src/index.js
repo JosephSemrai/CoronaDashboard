@@ -13,13 +13,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from 'src/serviceWorker';
 import { SettingsProvider } from 'src/context/SettingsContext';
-import { configureStore } from 'src/store';
 import { restoreSettings } from 'src/utils/settings';
 import App from 'src/App';
+import store from './store';
 
 enableES5();
 
-const store = configureStore();
 const settings = restoreSettings();
 
 ReactDOM.render(

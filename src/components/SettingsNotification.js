@@ -72,8 +72,7 @@ function SettingsNotification() {
           variant="body2"
           color="textSecondary"
         >
-          We automatically updated your settings.
-          You change the settings any time from your dashboard settings.
+          We&quot;ve automatically set your color preferences based on what your device told us. If you&apos;d like to switch to light or dark mode, please select &quot;Switch&quot; below.
         </Typography>
         <Box
           mt={2}

@@ -20,33 +20,35 @@ import ScrollReset from 'src/components/ScrollReset';
 import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
 import Routes from 'src/Routes';
-
+import LocationManager from 'src/components/LocationManager';
 const history = createBrowserHistory();
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
-const useStyles = makeStyles(() => createStyles({
-  '@global': {
-    '*': {
-      boxSizing: 'border-box',
-      margin: 0,
-      padding: 0,
-    },
-    html: {
-      '-webkit-font-smoothing': 'antialiased',
-      '-moz-osx-font-smoothing': 'grayscale',
-      height: '100%',
-      width: '100%'
-    },
-    body: {
-      height: '100%',
-      width: '100%'
-    },
-    '#root': {
-      height: '100%',
-      width: '100%'
+const useStyles = makeStyles(() =>
+  createStyles({
+    '@global': {
+      '*': {
+        boxSizing: 'border-box',
+        margin: 0,
+        padding: 0
+      },
+      html: {
+        '-webkit-font-smoothing': 'antialiased',
+        '-moz-osx-font-smoothing': 'grayscale',
+        height: '100%',
+        width: '100%'
+      },
+      body: {
+        height: '100%',
+        width: '100%'
+      },
+      '#root': {
+        height: '100%',
+        width: '100%'
+      }
     }
-  }
-}));
+  })
+);
 
 function App() {
   useStyles();
@@ -59,6 +61,7 @@ function App() {
         <MuiPickersUtilsProvider utils={MomentUtils}>
           <SnackbarProvider maxSnack={1}>
             <Router history={history}>
+              <LocationManager />
               <ScrollReset />
               <GoogleAnalytics />
               <CookiesNotification />

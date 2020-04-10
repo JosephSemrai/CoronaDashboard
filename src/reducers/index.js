@@ -1,10 +1,9 @@
-import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
-import notificationsReducer from './notificationsReducer';
+import { combineReducers } from '@reduxjs/toolkit';
+
+import locationSlice from './locationSlice';
 
 const rootReducer = combineReducers({
-  notifications: notificationsReducer,
-  form: formReducer
+  location: locationSlice
 });
 
 export default rootReducer;
