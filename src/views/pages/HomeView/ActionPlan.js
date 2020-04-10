@@ -11,7 +11,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.default,
     paddingTop: 128,
@@ -27,10 +27,7 @@ function ActionPlan({ className, ...rest }) {
   const classes = useStyles();
 
   return (
-    <div
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <div className={clsx(classes.root, className)} {...rest}>
       <Container maxWidth="lg">
         <Typography
           component="p"
@@ -40,93 +37,52 @@ function ActionPlan({ className, ...rest }) {
         >
           Action Plan
         </Typography>
-        <Typography
-          variant="h1"
-          align="center"
-          color="textPrimary"
-        >
+        <Typography variant="h1" align="center" color="textPrimary">
           What you should do next
         </Typography>
         <Box mt={8}>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              xs={12}
-              md={4}
-            >
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
               <Box display="flex">
-                <Avatar className={classes.avatar}>
-                  01
-                </Avatar>
+                <Avatar className={classes.avatar}>01</Avatar>
                 <Box ml={2}>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    color="textPrimary"
-                  >
+                  <Typography variant="h4" gutterBottom color="textPrimary">
                     Determine if you have symptoms
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  <Typography variant="body1" color="textPrimary">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam
                   </Typography>
                 </Box>
               </Box>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              md={4}
-            >
+            <Grid item xs={12} md={4}>
               <Box display="flex">
-                <Avatar className={classes.avatar}>
-                  02
-                </Avatar>
+                <Avatar className={classes.avatar}>02</Avatar>
                 <Box ml={2}>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    color="textPrimary"
-                  >
+                  <Typography variant="h4" gutterBottom color="textPrimary">
                     Call one of these numbers in your area
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  <Typography variant="body1" color="textPrimary">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam
                   </Typography>
                 </Box>
               </Box>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              md={4}
-            >
+            <Grid item xs={12} md={4}>
               <Box display="flex">
-                <Avatar className={classes.avatar}>
-                  03
-                </Avatar>
+                <Avatar className={classes.avatar}>03</Avatar>
                 <Box ml={2}>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    color="textPrimary"
-                  >
+                  <Typography variant="h4" gutterBottom color="textPrimary">
                     Monitor this
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    gutterBottom
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  <Typography variant="body1" color="textPrimary" gutterBottom>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam
                   </Typography>
                   <Button
                     variant="outlined"
