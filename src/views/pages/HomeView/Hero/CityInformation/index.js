@@ -24,13 +24,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function CityInformation({ className, ...rest }) {
+function CityInformation({ className, location, ...rest }) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   return (
     <div className={clsx(classes.root, className)}>
       <Container maxWidth="lg">
+        <Typography variant="h1">
+          COVID-19 in {location.cityName}, {location.stateName}
+        </Typography>
         <Button onClick={() => dispatch(updateLocation({}))}>
           Enter a different city
         </Button>
