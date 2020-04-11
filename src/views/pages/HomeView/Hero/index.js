@@ -6,9 +6,13 @@ import { updateLocation } from 'src/reducers/locationSlice';
 import CityInformation from './CityInformation';
 
 function Hero({ className, ...rest }) {
-  const cityName = useSelector(state => state.location.cityName);
+  const location = useSelector(state => state.location);
 
-  return cityName ? <CityInformation cityName={cityName} /> : <Initial />;
+  return location.cityName && location.state ? (
+    <CityInformation location={location} />
+  ) : (
+    <Initial />
+  );
 }
 
 Hero.propTypes = {
