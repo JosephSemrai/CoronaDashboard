@@ -33,6 +33,12 @@ export default function CustomizedInputBase({ cityObject, params }) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const handleSubmit = () => {
+    cityObject && cityObject.state && cityObject.city
+      ? dispatch(updateLocation(cityObject))
+      : alert('Please select a city');
+  };
+
   return (
     <Paper component="form" className={classes.root}>
       <TextField
@@ -50,7 +56,7 @@ export default function CustomizedInputBase({ cityObject, params }) {
       <IconButton
         className={classes.iconButton}
         aria-label="search"
-        onClick={() => dispatch(updateLocation(cityObject))}
+        onClick={handleSubmit}
       >
         <SearchIcon />
       </IconButton>
