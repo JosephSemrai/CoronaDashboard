@@ -34,7 +34,10 @@ function CityInformation({ className, location, ...rest }) {
         <Typography variant="h1">
           COVID-19 in {location.cityName}, {location.stateName}
         </Typography>
-        <Button onClick={() => dispatch(updateLocation({}))}>
+        <Button
+          variant="contained"
+          onClick={() => dispatch(updateLocation({}))}
+        >
           Enter a different city
         </Button>
 
