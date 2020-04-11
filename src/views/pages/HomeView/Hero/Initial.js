@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Hero({ className, ...rest }) {
+function Initial({ className, ...rest }) {
   const classes = useStyles();
 
   return (
@@ -80,8 +80,8 @@ function Hero({ className, ...rest }) {
   );
 }
 
-Hero.propTypes = {
+Initial.propTypes = {
   className: PropTypes.string
 };
 
-export default Hero;
+export default Initial;
