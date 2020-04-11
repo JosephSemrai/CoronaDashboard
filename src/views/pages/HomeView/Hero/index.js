@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import Initial from './Initial';
-import { updateLocation } from 'src/reducers/locationSlice';
 import CityInformation from './CityInformation';
 
 function Hero({ className, ...rest }) {
   const location = useSelector(state => state.location);
 
-  return location.cityName && location.state ? (
+  return location.cityName && location.stateName ? (
     <CityInformation location={location} />
   ) : (
     <Initial />
