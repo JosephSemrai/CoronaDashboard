@@ -47,8 +47,9 @@ export default function Virtualize() {
       autoHighlight
       onChange={(_, value) => setCityObject(value)}
       filterOptions={filterOptions}
-      getOptionLabel={option => option.city}
+      getOptionLabel={option => `${option.city}, ${option.state}`}
       style={{ width: '100%' }}
+      groupBy={t => t.state}
       renderInput={params => (
         <CustomizedInput cityObject={cityObject} params={params} />
       )}
