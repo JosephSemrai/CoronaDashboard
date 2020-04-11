@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -36,6 +36,7 @@ export default function Virtualize() {
   const filterOptions = createFilterOptions({
     limit: 100
   });
+  const [cityObject, setCityObject] = useState();
 
   return (
     <Autocomplete
@@ -44,10 +45,13 @@ export default function Virtualize() {
       options={usaCities}
       autoSelect
       autoHighlight
+      onChange={(_, value) => setCityObject(value)}
       filterOptions={filterOptions}
       getOptionLabel={option => option.city}
       style={{ width: '100%' }}
-      renderInput={params => <CustomizedInput params={params} />}
+      renderInput={params => (
+        <CustomizedInput cityObject={cityObject} params={params} />
+      )}
     />
   );
 }

@@ -29,10 +29,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CustomizedInputBase({ params }) {
+export default function CustomizedInputBase({ cityObject, params }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [cityText, setCityText] = useState();
 
   return (
     <Paper component="form" className={classes.root}>
@@ -40,7 +39,6 @@ export default function CustomizedInputBase({ params }) {
         className={classes.input}
         placeholder="Search for your city"
         {...params}
-        onChange={e => setCityText(e.target.value)}
         InputProps={{
           // Weird workaround to remove underline
           ...params.InputProps,
@@ -52,7 +50,7 @@ export default function CustomizedInputBase({ params }) {
       <IconButton
         className={classes.iconButton}
         aria-label="search"
-        onClick={() => dispatch(updateLocation(cityText))}
+        onClick={() => dispatch(updateLocation(cityObject))}
       >
         <SearchIcon />
       </IconButton>

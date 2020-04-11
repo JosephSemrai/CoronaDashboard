@@ -29,9 +29,9 @@ function CityInformation({ className, ...rest }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={clsx(classes.root, className)} {...rest}>
+    <div className={clsx(classes.root, className)}>
       <Container maxWidth="lg">
-        <Button onClick={() => dispatch(updateLocation())}>
+        <Button onClick={() => dispatch(updateLocation({}))}>
           Enter a different city
         </Button>
 

@@ -7,7 +7,8 @@ const locationSlice = createSlice({
   },
   reducers: {
     updateLocation(state, action) {
-      state.cityName = action.payload;
+      state.cityName = action.payload.city;
+      state.state = action.payload.state;
       localStorage.setItem('cityName', action.payload);
     }
   }
