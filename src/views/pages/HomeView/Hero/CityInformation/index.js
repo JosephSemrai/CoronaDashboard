@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { updateLocation } from 'src/reducers/locationSlice';
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,6 +28,17 @@ const useStyles = makeStyles(theme => ({
 function CityInformation({ className, location, ...rest }) {
   const classes = useStyles();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    // eslint-disable-next-line react/prop-types
+    const sanitizedState = location.stateName.toLowerCase().replace(/\s/g, '-');
+    axios
+      .get(
+        `https://covid-19-testing.github.io/locations/${sanitizedState}/complete.json`
+      )
+      .then(res => alert(JSON.stringify(res.data)))
+      .catch(e => alert(e));
+  });
 
   return (
     <div className={clsx(classes.root, className)}>
