@@ -8,6 +8,7 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
+import CitySearch from 'src/components/CitySearch';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,13 +60,7 @@ function Hero({ className, ...rest }) {
                 </Typography>
               </Box>
               <Box mt={3}>
-                <Grid container spacing={3}>
-                  <Grid item>
-                    <Typography variant="h1" color="secondary">
-                      INSERT INPUT BOX HERE
-                    </Typography>
-                  </Grid>
-                </Grid>
+                <CitySearch />
               </Box>
             </Box>
           </Grid>
