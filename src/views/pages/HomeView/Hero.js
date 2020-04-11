@@ -24,20 +24,11 @@ const useStyles = makeStyles(theme => ({
     transformStyle: 'preserve-3d',
     perspective: 1500,
     '& > img': {
-      maxWidth: '90%',
+      maxWidth: '80%',
       height: 'auto',
       transform: 'rotateY(-5deg) rotateX(5deg)',
       backfaceVisibility: 'hidden'
       // boxShadow: theme.shadows[16]
-    }
-  },
-  shape: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    '& > img': {
-      maxWidth: '90%',
-      height: 'auto'
     }
   }
 }));
@@ -80,9 +71,6 @@ function Hero({ className, ...rest }) {
           </Grid>
           <Grid item xs={12} md={7}>
             <Box position="relative">
-              <div className={classes.shape}>
-                <img alt="Shapes" src="/static/home/shapes.svg" />
-              </div>
               <div className={classes.image}>
                 <img
                   alt="Medical Researchers"

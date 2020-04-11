@@ -62,7 +62,8 @@ function TopBar({ className, ...rest }) {
         </RouterLink>
         <Hidden mdDown>
           <Typography variant="caption" color="textSecondary">
-            Version {APP_VERSION}
+            Version
+            {` ${APP_VERSION}`}
           </Typography>
         </Hidden>
         <Box flexGrow={1} />
