@@ -15,8 +15,11 @@ import {
 } from '@material-ui/core';
 import { APP_VERSION } from 'src/config';
 import Logo from 'src/components/Logo';
+import Cookies from 'js-cookie';
+import useSettings from 'src/hooks/useSettings';
+import { THEMES } from 'src/constants';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.default
   },
@@ -42,25 +45,25 @@ const useStyles = makeStyles((theme) => ({
 
 function TopBar({ className, ...rest }) {
   const classes = useStyles();
+  const { settings, saveSettings } = useSettings();
+
+  const handleColorSwitch = () => {
+    const otherTheme =
+      settings.theme === THEMES.LIGHT ? THEMES.ONE_DARK : THEMES.LIGHT;
+    saveSettings({ theme: otherTheme });
+    Cookies.set('settingsUpdated', 'true');
+  };
 
   return (
-    <AppBar
-      className={clsx(classes.root, className)}
-      color="default"
-      {...rest}
-    >
+    <AppBar className={clsx(classes.root, className)} color="default" {...rest}>
       <Toolbar className={classes.toolbar}>
         <RouterLink to="/">
           <Logo className={classes.logo} />
         </RouterLink>
         <Hidden mdDown>
-          <Typography
-            variant="caption"
-            color="textSecondary"
-          >
+          <Typography variant="caption" color="textSecondary">
             Version
-            {' '}
-            {APP_VERSION}
+            {` ${APP_VERSION}`}
           </Typography>
         </Hidden>
         <Box flexGrow={1} />
@@ -88,7 +91,7 @@ function TopBar({ className, ...rest }) {
         <Button
           color="secondary"
           component="a"
-          href="https://google.com"
+          onClick={handleColorSwitch}
           variant="contained"
           size="small"
         >
