@@ -4,7 +4,7 @@ import {
   Typography,
   Card,
   CardContent,
-  CardActions,
+  Grid,
   Link,
   Button,
   CircularProgress,
@@ -46,14 +46,16 @@ function TreatmentCenters({ className, location, ...rest }) {
     <Card className={classes.centerCard} variant="outlined">
       <CardContent>
         <Typography variant="h4" color="textPrimary">
-          {center.name} |
+          {center.name}
         </Typography>{' '}
         <Link href="#" variant="h5">
-          {center.phones[0].number}
+          {center.phones ? center.phones[0].number : 'No Phones Available'}
         </Link>
         <Typography color="textSecondary">
-          {`${center.physical_address[0].city} | 
-            ${center.physical_address[0].postal_code}`}
+          {center.physical_address
+            ? `${center.physical_address[0].city} | 
+            ${center.physical_address[0].postal_code}`
+            : 'No Addresses Available'}
         </Typography>
         {processDescription(center.description)}
       </CardContent>
@@ -72,16 +74,28 @@ function TreatmentCenters({ className, location, ...rest }) {
   });
 
   return (
-    <Card style={{ maxHeight: '100%', overflowY: 'scroll' }}>
+    <Card style={{ maxHeight: '100%' }}>
       <CardContent>
         <Typography color="textPrimary" variant="h4">
           Local Location Updates
         </Typography>
-        {treatmentCenters ? (
-          treatmentCenters.map(center => <CenterCard center={center} />)
-        ) : (
-          <CircularProgress />
-        )}
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start"
+          spacing={1}
+        >
+          {treatmentCenters ? (
+            treatmentCenters.map(center => (
+              <Grid item lg={3}>
+                <CenterCard center={center} />
+              </Grid>
+            ))
+          ) : (
+            <CircularProgress />
+          )}
+        </Grid>
       </CardContent>
     </Card>
   );

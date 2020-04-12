@@ -43,7 +43,7 @@ function CityInformation({ className, location, ...rest }) {
         </Typography>
 
         <Grid container direction="row" spacing={3}>
-          <Grid item md={4} xs={12} style={{ height: '80vh' }}>
+          <Grid item xs={12} style={{ height: '70vh' }}>
             <TreatmentCenters location={location} />
           </Grid>
         </Grid>
