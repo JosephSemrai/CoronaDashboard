@@ -114,7 +114,7 @@ function TopBar({ className, ...rest }) {
           variant="contained"
           size="small"
         >
-          Buy us a coffee
+          Switch Themes
         </Button>
       </Toolbar>
     </AppBar>

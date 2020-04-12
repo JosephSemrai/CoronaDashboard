@@ -19,6 +19,7 @@ import Recovered from './Recovered';
 import axios from 'axios';
 import LocalHospitals from './LocalHospitals';
 import Deaths from './Deaths';
+import moment from 'moment';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -84,10 +85,18 @@ function CityInformation({ className, location, ...rest }) {
         >
           Enter a different city
         </Button>
-        <Typography variant="h1" color="textPrimary">
-          COVID-19 in {location.city}, {location.state} Last Updated{' '}
+        <Typography variant="h1" style={{ marginTop: 15 }} color="textPrimary">
+          Here's what's happening in {location.city}, {location.state}
+        </Typography>
+
+        <Typography
+          variant="h3"
+          style={{ marginBottom: 15 }}
+          color="textSecondary"
+        >
+          County information last updated{' '}
           {countyCovidData
-            ? countyCovidData.lastUpdated
+            ? moment(countyCovidData.lastUpdated).fromNow()
             : 'Unable to gather data'}
         </Typography>
 

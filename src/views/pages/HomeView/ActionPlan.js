@@ -47,12 +47,16 @@ function ActionPlan({ className, ...rest }) {
                 <Avatar className={classes.avatar}>01</Avatar>
                 <Box ml={2}>
                   <Typography variant="h4" gutterBottom color="textPrimary">
-                    Determine if you have symptoms
+                    Protect yourself
                   </Typography>
                   <Typography variant="body1" color="textPrimary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam
+                    Stay at home. If someone is your house in sick, maintain
+                    distance from them. Make sure you are consistently washing
+                    your hands (20 seconds with soap and water). Use an
+                    alcohol-based hand rub (with at least 60% alcohol) if
+                    needed. Disinfect frequently touched surfaces and objects,
+                    such as doorknobs, handles, remotes, tables, and light
+                    switches.
                   </Typography>
                 </Box>
               </Box>
@@ -62,12 +66,17 @@ function ActionPlan({ className, ...rest }) {
                 <Avatar className={classes.avatar}>02</Avatar>
                 <Box ml={2}>
                   <Typography variant="h4" gutterBottom color="textPrimary">
-                    Call one of these numbers in your area
+                    Maintain your mental health
                   </Typography>
                   <Typography variant="body1" color="textPrimary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam
+                    Go on a run or walk, staying away from people, to clear your
+                    head. Disconnect from the news for some time to avoid being
+                    constantly reminded about the virus. Do activities that can
+                    distract you and relax you, like watching your favorite
+                    show, cooking, reading, or doing a puzzle. Video call a
+                    friend and chat about how you are passing your time. If you
+                    are experiencing anxiety about the pandemic, call a
+                    therapist or a trusted person.
                   </Typography>
                 </Box>
               </Box>
@@ -77,12 +86,13 @@ function ActionPlan({ className, ...rest }) {
                 <Avatar className={classes.avatar}>03</Avatar>
                 <Box ml={2}>
                   <Typography variant="h4" gutterBottom color="textPrimary">
-                    Monitor this
+                    Do something productive
                   </Typography>
                   <Typography variant="body1" color="textPrimary" gutterBottom>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam
+                    Doing productive work can make you feel accomplished. You
+                    can set goals for yourself, work out, and work on yourself
+                    more. It is a great way to make the best out of a bad
+                    situation.
                   </Typography>
                   <Button
                     variant="outlined"

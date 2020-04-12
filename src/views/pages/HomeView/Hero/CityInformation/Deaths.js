@@ -9,7 +9,7 @@ import {
   makeStyles,
   CircularProgress
 } from '@material-ui/core';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import Label from 'src/components/Label';
 
 const useStyles = makeStyles(theme => ({
@@ -55,7 +55,7 @@ function Density({ className, value, ...rest }) {
         </Box>
       </Box>
       <Avatar className={classes.avatar}>
-        <AttachMoneyIcon />
+        <PriorityHighIcon />
       </Avatar>
     </Card>
   );

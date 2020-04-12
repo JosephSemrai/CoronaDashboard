@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Avatar, Box, Card, Typography, makeStyles } from '@material-ui/core';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
 import Label from 'src/components/Label';
 
 const useStyles = makeStyles(theme => ({
@@ -39,7 +39,7 @@ function Density({ className, value, ...rest }) {
         </Typography>
         <Box display="flex" alignItems="center" flexWrap="wrap">
           <Typography variant="h3" color="textPrimary">
-            {value}
+            {value} km2
           </Typography>
           <Label
             className={classes.label}
@@ -48,12 +48,9 @@ function Density({ className, value, ...rest }) {
             {value > 9000 ? 'High' : 'Normal'}
           </Label>
         </Box>
-        <Typography variant="body2" color="textSecondary">
-          People per square kilometer
-        </Typography>
       </Box>
       <Avatar className={classes.avatar}>
-        <AttachMoneyIcon />
+        <LocationCityIcon />
       </Avatar>
     </Card>
   );
