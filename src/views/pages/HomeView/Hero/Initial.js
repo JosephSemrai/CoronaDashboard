@@ -41,8 +41,7 @@ const defaultOptions = {
   autoplay: true,
   animationData: animationData.default,
   rendererSettings: {
-    preserveAspectRatio: 'none',
-    viewBox: '0 0 64 32'
+    preserveAspectRatio: 'none'
   }
 };
 

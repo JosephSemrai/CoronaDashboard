@@ -11,12 +11,12 @@ import {
 } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { updateLocation } from 'src/reducers/locationSlice';
-import axios from 'axios';
+import TreatmentCenters from './TreatmentCenters';
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
-    paddingTop: 200,
+    paddingTop: 50,
     paddingBottom: 200,
     [theme.breakpoints.down('md')]: {
       paddingTop: 60,
@@ -29,31 +29,24 @@ function CityInformation({ className, location, ...rest }) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // eslint-disable-next-line react/prop-types
-    const sanitizedState = location.stateName.toLowerCase().replace(/\s/g, '-');
-    axios
-      .get(
-        `https://covid-19-testing.github.io/locations/${sanitizedState}/complete.json`
-      )
-      .then(res => alert(JSON.stringify(res.data)))
-      .catch(e => alert(e));
-  });
-
   return (
     <div className={clsx(classes.root, className)}>
       <Container maxWidth="lg">
-        <Typography variant="h1">
-          COVID-19 in {location.cityName}, {location.stateName}
-        </Typography>
         <Button
           variant="contained"
           onClick={() => dispatch(updateLocation({}))}
         >
           Enter a different city
         </Button>
+        <Typography variant="h1" color="textPrimary">
+          COVID-19 in {location.cityName}, {location.stateName}
+        </Typography>
 
-        <Grid container spacing={3}></Grid>
+        <Grid container direction="row" spacing={3}>
+          <Grid item md={4} xs={12} style={{ height: '80vh' }}>
+            <TreatmentCenters location={location} />
+          </Grid>
+        </Grid>
       </Container>
     </div>
   );
