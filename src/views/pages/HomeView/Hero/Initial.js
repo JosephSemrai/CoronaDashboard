@@ -9,6 +9,8 @@ import {
   makeStyles
 } from '@material-ui/core';
 import CitySearch from 'src/components/CitySearch';
+import * as animationData from 'src/assets/stayhome.json';
+import Lottie from 'react-lottie';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +35,16 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData.default,
+  rendererSettings: {
+    preserveAspectRatio: 'none',
+    viewBox: '0 0 64 32'
+  }
+};
 
 function Initial({ className, ...rest }) {
   const classes = useStyles();
@@ -64,14 +76,21 @@ function Initial({ className, ...rest }) {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={7} style={{ maxHeight: '80%' }}>
             <Box position="relative">
-              <div className={classes.image}>
+              {/* <div className={classes.image}>
                 <img
                   alt="Medical Researchers"
                   src="/static/home/medical_research.svg"
                 />
-              </div>
+              </div> */}
+              <Lottie
+                options={defaultOptions}
+                height={'50%'}
+                isStopped={false}
+                isPaused={false}
+                width={'50%'}
+              />
             </Box>
           </Grid>
         </Grid>
