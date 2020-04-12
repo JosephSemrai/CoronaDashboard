@@ -50,27 +50,34 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
     <Card className={clsx(classes.root, className)} {...rest}>
       <CardHeader action={<GenericMoreButton />} title="Risk Analysis" />
       <Divider />
-      <CardContent style={{ minHeight: '80%' }}>
+      <CardContent style={{ minHeight: '30%' }}>
         <Grid
           container
           direction="row"
           justify="space-around"
           alignItems="center"
-          style={{ height: 500 }}
         >
           <Grid item md={6} xs={12}>
-            <Typography variant="h3" color="textSecondary">
+            <Typography align="center" variant="h3" color="textSecondary">
               Your risk level is:
             </Typography>
 
-            <Typography veriant="h1" color="">
-              {riskNumber === NaN ? 'Loading...' : roundedRisk}
+            <Typography
+              align="center"
+              variant="h1"
+              color={riskNumber > 50 ? 'error' : 'primary'}
+            >
+              {riskNumber === NaN ? 'Loading...' : roundedRisk} / 100
             </Typography>
           </Grid>
 
           <Grid item md={6} xs={12}>
-            <Typography style={{ height: '100%' }}>
-              {riskMessages[Math.floor(riskNumber / 10)]}
+            <Typography>{riskMessages[Math.floor(riskNumber / 10)]}</Typography>
+            <Typography variant="subtitle2">
+              This risk is an estimate based on your city and district
+              information including death rates, infection counts, density
+              information, and other data. Please consult to official news
+              sources in your area for more detailed and accurate information.
             </Typography>
           </Grid>
         </Grid>
