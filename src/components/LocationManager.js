@@ -9,7 +9,14 @@ const LocationManager = () => {
     const cityName = localStorage.getItem('cityName');
     const stateName = localStorage.getItem('stateName');
 
-    if (!(cityName === 'undefined' && stateName === 'undefined')) {
+    if (
+      !(
+        cityName === 'undefined' ||
+        stateName === 'undefined' ||
+        cityName === 'null' ||
+        stateName === 'null'
+      )
+    ) {
       dispatch(updateLocation({ city: cityName, state: stateName }));
     }
   });
