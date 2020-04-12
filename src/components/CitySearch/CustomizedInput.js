@@ -44,6 +44,12 @@ export default function CustomizedInputBase({ cityObject, params }) {
       <TextField
         className={classes.input}
         placeholder="Search for your city"
+        onKeyPress={ev => {
+          if (ev.key === 'Enter') {
+            handleSubmit();
+            ev.preventDefault();
+          }
+        }}
         {...params}
         InputProps={{
           // Weird workaround to remove underline
