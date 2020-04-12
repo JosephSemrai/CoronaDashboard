@@ -7,16 +7,17 @@ const LocationManager = () => {
 
   useEffect(() => {
     const locationInfo = JSON.parse(localStorage.getItem('locationInfo'));
-
-    if (
-      !(
-        locationInfo.city === 'undefined' ||
-        locationInfo.state === 'undefined' ||
-        locationInfo.city === 'null' ||
-        locationInfo.state === 'null'
-      )
-    ) {
-      dispatch(updateLocation(locationInfo));
+    if (locationInfo) {
+      if (
+        !(
+          locationInfo.city === 'undefined' ||
+          locationInfo.state === 'undefined' ||
+          locationInfo.city === 'null' ||
+          locationInfo.state === 'null'
+        )
+      ) {
+        dispatch(updateLocation(locationInfo));
+      }
     }
   });
 
