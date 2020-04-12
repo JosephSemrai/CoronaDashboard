@@ -64,14 +64,14 @@ function TreatmentCenters({ className, location, ...rest }) {
 
   useEffect(() => {
     // eslint-disable-next-line react/prop-types
-    const sanitizedState = location.stateName.toLowerCase().replace(/\s/g, '-');
+    const sanitizedState = location.state.toLowerCase().replace(/\s/g, '-');
     axios
       .get(
         `https://covid-19-testing.github.io/locations/${sanitizedState}/complete.json`
       )
       .then(res => setTreatmentCenters(res.data))
       .catch(e => alert(e));
-  });
+  }, [location]);
 
   return (
     <Card style={{ maxHeight: '100%' }}>
