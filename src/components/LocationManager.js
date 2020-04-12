@@ -7,7 +7,7 @@ const LocationManager = () => {
 
   useEffect(() => {
     const locationInfo = JSON.parse(localStorage.getItem('locationInfo'));
-    if (locationInfo) {
+    if (!(locationInfo === null)) {
       if (
         !(
           locationInfo.city === 'undefined' ||
