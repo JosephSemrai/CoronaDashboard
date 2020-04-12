@@ -8,6 +8,9 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
+import CitySearch from 'src/components/CitySearch';
+import * as animationData from 'src/assets/stayhome.json';
+import Lottie from 'react-lottie';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,25 +27,25 @@ const useStyles = makeStyles(theme => ({
     transformStyle: 'preserve-3d',
     perspective: 1500,
     '& > img': {
-      maxWidth: '90%',
+      maxWidth: '80%',
       height: 'auto',
       transform: 'rotateY(-5deg) rotateX(5deg)',
       backfaceVisibility: 'hidden'
       // boxShadow: theme.shadows[16]
     }
-  },
-  shape: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    '& > img': {
-      maxWidth: '90%',
-      height: 'auto'
-    }
   }
 }));
 
-function Hero({ className, ...rest }) {
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData.default,
+  rendererSettings: {
+    preserveAspectRatio: 'none'
+  }
+};
+
+function Initial({ className, ...rest }) {
   const classes = useStyles();
 
   return (
@@ -68,27 +71,25 @@ function Hero({ className, ...rest }) {
                 </Typography>
               </Box>
               <Box mt={3}>
-                <Grid container spacing={3}>
-                  <Grid item>
-                    <Typography variant="h1" color="secondary">
-                      INSERT INPUT BOX HERE
-                    </Typography>
-                  </Grid>
-                </Grid>
+                <CitySearch />
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={7} style={{ maxHeight: '80%' }}>
             <Box position="relative">
-              <div className={classes.shape}>
-                <img alt="Shapes" src="/static/home/shapes.svg" />
-              </div>
-              <div className={classes.image}>
+              {/* <div className={classes.image}>
                 <img
                   alt="Medical Researchers"
                   src="/static/home/medical_research.svg"
                 />
-              </div>
+              </div> */}
+              <Lottie
+                options={defaultOptions}
+                height={'50%'}
+                isStopped={false}
+                isPaused={false}
+                width={'50%'}
+              />
             </Box>
           </Grid>
         </Grid>
@@ -97,8 +98,8 @@ function Hero({ className, ...rest }) {
   );
 }
 
-Hero.propTypes = {
+Initial.propTypes = {
   className: PropTypes.string
 };
 
-export default Hero;
+export default Initial;

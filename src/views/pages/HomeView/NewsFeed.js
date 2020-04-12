@@ -9,7 +9,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     paddingTop: 128,
@@ -24,30 +24,20 @@ function NewsFeed({ className, ...rest }) {
   const classes = useStyles();
 
   return (
-    <div
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <div className={clsx(classes.root, className)} {...rest}>
       <Container maxWidth="md">
         <Typography
           variant="h2"
           align="center"
           color="textPrimary"
           className={classes.title}
-        >News Feed
-        </Typography>
-        <Box
-          mt={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
         >
+          News Feed
+        </Typography>
+        <Box mt={6} display="flex" justifyContent="center" alignItems="center">
           <Avatar src="/static/home/olivier.png" />
           <Box ml={2}>
-            <Typography
-              variant="body1"
-              color="textPrimary"
-            >
+            <Typography variant="body1" color="textPrimary">
               Example Journalist
               <Typography
                 color="textSecondary"
