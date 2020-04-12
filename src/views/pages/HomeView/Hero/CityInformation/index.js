@@ -116,14 +116,14 @@ function CityInformation({ className, location, ...rest }) {
           {/* <Grid item lg={3} xs={12}>
             <TreatmentCenters location={location} />
           </Grid> */}
-          <Grid item lg={9} xs={12}>
+          <Grid item lg={12} xs={12}>
             <PerformanceOverTime
               location={location}
               countyData={countyCovidData}
             />
             <LocalHospitals style={{ marginTop: 20 }} location={location} />
           </Grid>
-          <Grid item lg={12} xl={4} xs={12}>
+          <Grid item lg={12} xs={12}>
             <TreatmentCenters location={location} />
           </Grid>
         </Grid>
