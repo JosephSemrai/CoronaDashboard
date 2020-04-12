@@ -18,6 +18,8 @@ import Logo from 'src/components/Logo';
 import Cookies from 'js-cookie';
 import useSettings from 'src/hooks/useSettings';
 import { THEMES } from 'src/constants';
+import * as animationData from 'src/assets/coronavirus.json';
+import Lottie from 'react-lottie';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,11 +56,28 @@ function TopBar({ className, ...rest }) {
     Cookies.set('settingsUpdated', 'true');
   };
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData.default,
+    rendererSettings: {
+      preserveAspectRatio: 'none',
+      viewBox: '0 0 64 32'
+    }
+  };
+
   return (
     <AppBar className={clsx(classes.root, className)} color="default" {...rest}>
       <Toolbar className={classes.toolbar}>
         <RouterLink to="/">
-          <Logo className={classes.logo} />
+          {/* <Logo className={classes.logo} /> */}
+          <Lottie
+            options={defaultOptions}
+            height={64}
+            isStopped={false}
+            isPaused={false}
+            width={64}
+          />
         </RouterLink>
         <Hidden mdDown>
           <Typography variant="caption" color="textSecondary">
