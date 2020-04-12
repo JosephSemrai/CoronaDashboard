@@ -17,6 +17,7 @@ import PerformanceOverTime from './PerformanceOverTime';
 import TotalConfirmed from './TotalConfirmed';
 import Recovered from './Recovered';
 import axios from 'axios';
+import LocalHospitals from './LocalHospitals';
 import Deaths from './Deaths';
 
 const useStyles = makeStyles(theme => ({
@@ -103,22 +104,17 @@ function CityInformation({ className, location, ...rest }) {
           <Grid item lg={3} sm={6} xs={12}>
             <Recovered value={countyCovidData.totalRecovered} />
           </Grid>
-          <Grid item lg={3} xs={12}>
+          {/* <Grid item lg={3} xs={12}>
             <TreatmentCenters location={location} />
-          </Grid>
+          </Grid> */}
           <Grid item lg={9} xs={12}>
             <PerformanceOverTime
               location={location}
               countyData={countyCovidData}
             />
+            <LocalHospitals style={{ marginTop: 20 }} location={location} />
           </Grid>
           <Grid item lg={12} xl={4} xs={12}>
-            <TreatmentCenters location={location} />
-          </Grid>
-        </Grid>
-
-        <Grid container direction="row" spacing={3}>
-          <Grid item xs={12} style={{ height: '70vh' }}>
             <TreatmentCenters location={location} />
           </Grid>
         </Grid>
