@@ -15,7 +15,7 @@ import GenericMoreButton from 'src/components/GenericMoreButton';
 import CircularProgress from '../LocalHospitals/CircularProgress';
 
 const useStyles = makeStyles(() => ({
-  root: { minWidth: 500 }
+  root: {}
 }));
 
 function PerformanceOverTime({ className, location, countyData, ...rest }) {
