@@ -15,14 +15,11 @@ function HomeView() {
   const classes = useStyles();
 
   return (
-    <Page
-      className={classes.root}
-      title="Home"
-    >
+    <Page className={classes.root} title="Home">
       <Hero />
       <ActionPlan />
       <NewsFeed />
-      <CTA />
+      {/* <CTA /> */}
       <FAQS />
     </Page>
   );

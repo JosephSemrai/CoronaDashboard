@@ -38,7 +38,7 @@ function ActionPlan({ className, ...rest }) {
           Action Plan
         </Typography>
         <Typography variant="h1" align="center" color="textPrimary">
-          What you should do next
+          What You Should Do Next
         </Typography>
         <Box mt={8}>
           <Grid container spacing={3}>
@@ -47,16 +47,16 @@ function ActionPlan({ className, ...rest }) {
                 <Avatar className={classes.avatar}>01</Avatar>
                 <Box ml={2}>
                   <Typography variant="h4" gutterBottom color="textPrimary">
-                    Protect yourself
+                    Determine Symptoms
                   </Typography>
                   <Typography variant="body1" color="textPrimary">
-                    Stay at home. If someone is your house in sick, maintain
-                    distance from them. Make sure you are consistently washing
-                    your hands (20 seconds with soap and water). Use an
-                    alcohol-based hand rub (with at least 60% alcohol) if
-                    needed. Disinfect frequently touched surfaces and objects,
-                    such as doorknobs, handles, remotes, tables, and light
-                    switches.
+                    If you have a fever, sore throat, or dry cough, you should
+                    self-quarantine and attempt to recover at home. If these
+                    symptoms persist for 2 or more days and do not improve, call
+                    your primary care provider. They will give you further
+                    instruction. If you are having trouble breathing, feel
+                    pressure in your chest, have bluish lips, or feel sudden
+                    confusion, visit a hospital.
                   </Typography>
                 </Box>
               </Box>
@@ -66,17 +66,15 @@ function ActionPlan({ className, ...rest }) {
                 <Avatar className={classes.avatar}>02</Avatar>
                 <Box ml={2}>
                   <Typography variant="h4" gutterBottom color="textPrimary">
-                    Maintain your mental health
+                    Protect Yourself
                   </Typography>
                   <Typography variant="body1" color="textPrimary">
-                    Go on a run or walk, staying away from people, to clear your
-                    head. Disconnect from the news for some time to avoid being
-                    constantly reminded about the virus. Do activities that can
-                    distract you and relax you, like watching your favorite
-                    show, cooking, reading, or doing a puzzle. Video call a
-                    friend and chat about how you are passing your time. If you
-                    are experiencing anxiety about the pandemic, call a
-                    therapist or a trusted person.
+                    Stay at home. If someone in your house is sick, maintain a
+                    safe distance from them. Make sure you are washing your
+                    hands (20 seconds with soap and water). Use an alcohol-based
+                    hand rub (with at least 60% alcohol) if necessary. Disinfect
+                    frequently touched surfaces and objects, such as doorknobs,
+                    handles, remotes, tables, and light switches.
                   </Typography>
                 </Box>
               </Box>
@@ -86,22 +84,24 @@ function ActionPlan({ className, ...rest }) {
                 <Avatar className={classes.avatar}>03</Avatar>
                 <Box ml={2}>
                   <Typography variant="h4" gutterBottom color="textPrimary">
-                    Do something productive
+                    Maintain Mental Health
                   </Typography>
                   <Typography variant="body1" color="textPrimary" gutterBottom>
-                    Doing productive work can make you feel accomplished. You
-                    can set goals for yourself, work out, and work on yourself
-                    more. It is a great way to make the best out of a bad
-                    situation.
+                    Go for a run or walk to clear your mind. Disconnect from the
+                    news for a while to avoid constant reminders about the
+                    virus. Perform activities that will distract and relax you,
+                    like watching TV, cooking, reading, or completing a puzzle.
+                    If you are experiencing anxiety about the pandemic, call a
+                    therapist or trusted person.
                   </Typography>
-                  <Button
+                  {/* <Button
                     variant="outlined"
                     component="a"
                     href="https://google.com"
                     target="_blank"
                   >
                     Example HREF
-                  </Button>
+                  </Button> */}
                 </Box>
               </Box>
             </Grid>
