@@ -6,11 +6,13 @@ import {
   CardHeader,
   CardContent,
   Divider,
+  Box,
   Typography,
   Grid,
   makeStyles
 } from '@material-ui/core';
 import GenericMoreButton from 'src/components/GenericMoreButton';
+import CircularProgress from '../LocalHospitals/CircularProgress';
 
 const useStyles = makeStyles(() => ({
   root: { minWidth: 500 }
@@ -56,11 +58,25 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
           direction="row"
           justify="space-around"
           alignItems="center"
+          justifyContent="center"
         >
           <Grid item md={6} xs={12}>
             <Typography align="center" variant="h3" color="textSecondary">
               Your risk level is:
             </Typography>
+
+            <Grid
+              style={{ marginTop: 10 }}
+              container
+              spacing={3}
+              direction="column"
+              alignItems="center"
+              justify="center"
+            >
+              <Grid item xs={3}>
+                <CircularProgress value={riskNumber} />
+              </Grid>
+            </Grid>
 
             <Typography
               align="center"
