@@ -92,8 +92,8 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
             <Typography variant="subtitle2">
               This risk is an estimate based on your city and district
               information including death rates, infection counts, density
-              information, and other data. Please consult to official news
-              sources in your area for more detailed and accurate information.
+              information, and other data. Please consult official news sources
+              in your area for more detailed and accurate information.
             </Typography>
           </Grid>
         </Grid>
