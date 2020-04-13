@@ -35,7 +35,7 @@ function Density({ className, value, ...rest }) {
           variant="overline"
           color="textSecondary"
         >
-          Population Density
+          City Population Density
         </Typography>
         <Box display="flex" alignItems="center" flexWrap="wrap">
           <Typography variant="h3" color="textPrimary">

@@ -21,15 +21,30 @@ const useStyles = makeStyles(() => ({
 function PerformanceOverTime({ className, location, countyData, ...rest }) {
   const classes = useStyles();
 
-  const densityRisk = location.density ? 1 + location.density / 10000 : 1;
-  const confirmedRisk =
-    countyData.totalConfirmed && location.population
+  let densityRisk =
+    location.density && location.density != 0
+      ? 1 + location.density / 10000
+      : 1;
+  let confirmedRisk =
+    countyData.totalConfirmed && location.population && location.population != 0
       ? 1 + (countyData.totalConfirmed / location.population) * 8
       : 1;
-  const deathRisk =
+  let deathRisk =
     countyData.totalDeaths && countyData.totalConfirmed
       ? 1 + (countyData.totalDeaths / countyData.totalConfirmed) * 5
       : 1;
+
+  // For development, remove when finished with feature
+  console.log(
+    'Population',
+    location.population,
+    'Total Confirmed',
+    countyData.totalConfirmed
+  );
+  console.table(densityRisk, confirmedRisk, deathRisk);
+
+  // Handle small towns
+  deathRisk = location.population < 10000 ? 1 : deathRisk;
   const riskLevel = densityRisk * confirmedRisk * deathRisk;
 
   let riskNumber = riskLevel * 10;

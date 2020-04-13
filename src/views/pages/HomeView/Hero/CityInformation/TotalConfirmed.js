@@ -42,7 +42,7 @@ function Density({ className, value, ...rest }) {
           variant="overline"
           color="textSecondary"
         >
-          Confirmed Cases
+          District Cases
         </Typography>
         <Box display="flex" alignItems="center" flexWrap="wrap">
           {value || value === null ? (
