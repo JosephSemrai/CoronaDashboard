@@ -36,33 +36,35 @@ function FAQS({ className, ...rest }) {
         <Grid container spacing={3} component="dl">
           <Grid item xs={12} md={6}>
             <Typography variant="overline" color="secondary">
-              Service &amp; Information
+              General Information &amp; Research
             </Typography>
             <Box mt={6}>
               <dd>
                 <Typography variant="h4" color="textPrimary">
-                  Question 1?
+                  Can I be infected if I am a child or young adult?
                 </Typography>
               </dd>
               <dt>
                 <Typography variant="body1" color="textSecondary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
+                  You can still be infected if you are younger. However, your
+                  immune system is more likely to be stronger and able to tackle
+                  the virus. This doesn’t mean that you should go to public
+                  places though, as you can act as a carrier of the virus and
+                  infect someone who has a weaker immune system.
                 </Typography>
               </dt>
             </Box>
             <Box mt={6}>
               <dd>
                 <Typography variant="h4" color="textPrimary">
-                  Other things
+                  How is the virus transmitted?
                 </Typography>
               </dd>
               <dt>
                 <Typography variant="body1" color="textSecondary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
+                  The virus travels in droplets (released by an infected
+                  person’s sneeze or cough) through the air and can live on hard
+                  surfaces for a short period of time.
                 </Typography>
               </dt>
             </Box>
@@ -74,14 +76,15 @@ function FAQS({ className, ...rest }) {
             <Box mt={6}>
               <dd>
                 <Typography variant="h4" color="textPrimary">
-                  Huh?
+                  Why should we practice social distancing?
                 </Typography>
               </dd>
               <dt>
                 <Typography variant="body1" color="textSecondary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
+                  Social distancing is extremely important as the virus can be
+                  transmitted unknowingly. Those who are immunocompromised
+                  cannot fight the virus easily, so it is detrimental if they
+                  are infected.
                 </Typography>
               </dt>
             </Box>

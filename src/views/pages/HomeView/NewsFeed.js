@@ -32,7 +32,7 @@ function NewsFeed({ className, ...rest }) {
           color="textPrimary"
           className={classes.title}
         >
-          News Feed
+          News Feed (WIP)
         </Typography>
         <Box mt={6} display="flex" justifyContent="center" alignItems="center">
           <Avatar src="/static/home/olivier.png" />

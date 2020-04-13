@@ -2,16 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const locationSlice = createSlice({
   name: 'location',
-  initialState: {
-    cityName: null,
-    stateName: null
-  },
+  initialState: {},
   reducers: {
     updateLocation(state, action) {
-      state.cityName = action.payload.city;
-      state.stateName = action.payload.state;
-      localStorage.setItem('cityName', action.payload.city);
-      localStorage.setItem('stateName', action.payload.state);
+      localStorage.setItem('locationInfo', JSON.stringify(action.payload));
+      return action.payload;
     }
   }
 });

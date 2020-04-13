@@ -7,7 +7,7 @@ import CityInformation from './CityInformation';
 function Hero({ className, ...rest }) {
   const location = useSelector(state => state.location);
 
-  return location.cityName && location.stateName ? (
+  return location.city && location.state ? (
     <CityInformation location={location} />
   ) : (
     <Initial />

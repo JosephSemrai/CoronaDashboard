@@ -4,13 +4,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Drawer,
-  Hidden,
-  List,
-  makeStyles
-} from '@material-ui/core';
+import { Box, Drawer, Hidden, List, makeStyles } from '@material-ui/core';
 import Logo from 'src/components/Logo';
 import NavItem from './NavItem';
 
@@ -18,6 +12,10 @@ const navItems = [
   {
     title: 'Welcome',
     href: '/docs/welcome'
+  },
+  {
+    title: 'Contributing',
+    href: '/docs/contributing'
   }
 ];
 
@@ -32,18 +30,10 @@ function renderNavItems({ items, ...rest }) {
   );
 }
 
-function reduceChildRoutes({
-  acc,
-  item,
-  depth = 0
-}) {
+function reduceChildRoutes({ acc, item, depth = 0 }) {
   if (item.items) {
     acc.push(
-      <NavItem
-        depth={depth}
-        key={item.href}
-        title={item.title}
-      >
+      <NavItem depth={depth} key={item.href} title={item.title}>
         {renderNavItems({
           depth: depth + 1,
           items: item.items
@@ -87,11 +77,7 @@ function NavBar({ openMobile, onMobileClose }) {
   }, [location.pathname]);
 
   const content = (
-    <Box
-      height="100%"
-      display="flex"
-      flexDirection="column"
-    >
+    <Box height="100%" display="flex" flexDirection="column">
       <Hidden lgUp>
         <Box p={2}>
           <RouterLink to="/">
@@ -99,9 +85,7 @@ function NavBar({ openMobile, onMobileClose }) {
           </RouterLink>
         </Box>
       </Hidden>
-      <Box p={2}>
-        {renderNavItems({ items: navItems })}
-      </Box>
+      <Box p={2}>{renderNavItems({ items: navItems })}</Box>
     </Box>
   );
 

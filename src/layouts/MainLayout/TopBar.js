@@ -86,7 +86,7 @@ function TopBar({ className, ...rest }) {
           </Typography>
         </Hidden>
         <Box flexGrow={1} />
-        <Link
+        {/* <Link
           className={classes.link}
           color="textSecondary"
           component={RouterLink}
@@ -95,7 +95,7 @@ function TopBar({ className, ...rest }) {
           variant="body2"
         >
           Placeholder Page
-        </Link>
+        </Link> */}
         <Link
           className={classes.link}
           color="textSecondary"
@@ -114,7 +114,7 @@ function TopBar({ className, ...rest }) {
           variant="contained"
           size="small"
         >
-          Buy us a coffee
+          Switch Themes
         </Button>
       </Toolbar>
     </AppBar>

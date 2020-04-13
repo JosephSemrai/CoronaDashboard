@@ -1,14 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import React, {
-  lazy,
-  Suspense,
-  Fragment
-} from 'react';
-import {
-  Switch,
-  Redirect,
-  Route
-} from 'react-router-dom';
+import React, { lazy, Suspense, Fragment } from 'react';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import DocsLayout from 'src/layouts/DocsLayout';
 import MainLayout from 'src/layouts/MainLayout';
 import HomeView from 'src/views/pages/HomeView';
@@ -40,6 +32,11 @@ const routesConfig = [
         component: lazy(() => import('src/views/docs/WelcomeView'))
       },
       {
+        exact: true,
+        path: '/docs/contributing',
+        component: lazy(() => import('src/views/docs/ContributingView'))
+      },
+      {
         component: () => <Redirect to="/404" />
       }
     ]
@@ -60,34 +57,37 @@ const routesConfig = [
   }
 ];
 
-const renderRoutes = (routes) => (routes ? (
-  <Suspense fallback={<LoadingScreen />}>
-    <Switch>
-      {routes.map((route, i) => {
-        const Guard = route.guard || Fragment;
-        const Layout = route.layout || Fragment;
-        const Component = route.component;
+const renderRoutes = routes =>
+  routes ? (
+    <Suspense fallback={<LoadingScreen />}>
+      <Switch>
+        {routes.map((route, i) => {
+          const Guard = route.guard || Fragment;
+          const Layout = route.layout || Fragment;
+          const Component = route.component;
 
-        return (
-          <Route
-            key={i}
-            path={route.path}
-            exact={route.exact}
-            render={(props) => (
-              <Guard>
-                <Layout>
-                  {route.routes
-                    ? renderRoutes(route.routes)
-                    : <Component {...props} />}
-                </Layout>
-              </Guard>
-            )}
-          />
-        );
-      })}
-    </Switch>
-  </Suspense>
-) : null);
+          return (
+            <Route
+              key={i}
+              path={route.path}
+              exact={route.exact}
+              render={props => (
+                <Guard>
+                  <Layout>
+                    {route.routes ? (
+                      renderRoutes(route.routes)
+                    ) : (
+                      <Component {...props} />
+                    )}
+                  </Layout>
+                </Guard>
+              )}
+            />
+          );
+        })}
+      </Switch>
+    </Suspense>
+  ) : null;
 
 function Routes() {
   return renderRoutes(routesConfig);

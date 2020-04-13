@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -12,6 +12,14 @@ import {
 import { useDispatch } from 'react-redux';
 import { updateLocation } from 'src/reducers/locationSlice';
 import TreatmentCenters from './TreatmentCenters';
+import Density from './Density';
+import PerformanceOverTime from './PerformanceOverTime';
+import TotalConfirmed from './TotalConfirmed';
+import Recovered from './Recovered';
+import axios from 'axios';
+import LocalHospitals from './LocalHospitals';
+import Deaths from './Deaths';
+import moment from 'moment';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,6 +36,45 @@ const useStyles = makeStyles(theme => ({
 function CityInformation({ className, location, ...rest }) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [globalCovidData, setGlobalCovidData] = useState({});
+  const [stateCovidData, setStateCovidData] = useState({});
+  const [countyCovidData, setCountyCovidData] = useState({});
+
+  useEffect(() => {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const targetUrl = 'https://bing.com/covid/data';
+    fetch(proxyUrl + targetUrl)
+      .then(blob => blob.json())
+      .then(data => {
+        data
+          ? setGlobalCovidData(data)
+          : alert('Unable to fetch COVID-19 data');
+
+        // Parse API response
+        const unitedStatesData = data.areas[0];
+        const stateData = unitedStatesData.areas.find(
+          state => state.displayName === location.state
+        );
+
+        console.log('County: ', location.county);
+        const countyData = stateData.areas.find(
+          county =>
+            county.displayName === location.county ||
+            county.displayName === `${location.county} County` ||
+            county.displayName === `${location.county} City`
+        );
+
+        stateData
+          ? setStateCovidData(stateData)
+          : alert('Unable to fetch state COVID-19 data');
+
+        countyData
+          ? setCountyCovidData(countyData)
+          : alert('Unable to fetch county COVID-19 data');
+
+        console.log(countyData);
+      });
+  }, []);
 
   return (
     <div className={clsx(classes.root, className)}>
@@ -38,12 +85,45 @@ function CityInformation({ className, location, ...rest }) {
         >
           Enter a different city
         </Button>
-        <Typography variant="h1" color="textPrimary">
-          COVID-19 in {location.cityName}, {location.stateName}
+        <Typography variant="h1" style={{ marginTop: 15 }} color="textPrimary">
+          Here's what's happening in {location.city}, {location.state}
         </Typography>
 
-        <Grid container direction="row" spacing={3}>
-          <Grid item xs={12} style={{ height: '70vh' }}>
+        <Typography
+          variant="h3"
+          style={{ marginBottom: 15 }}
+          color="textSecondary"
+        >
+          County information last updated{' '}
+          {countyCovidData
+            ? moment(countyCovidData.lastUpdated).fromNow()
+            : 'Unable to gather data'}
+        </Typography>
+
+        <Grid container spacing={3}>
+          <Grid item lg={3} sm={6} xs={12}>
+            <Density value={location.density} />
+          </Grid>
+          <Grid item lg={3} sm={6} xs={12}>
+            <TotalConfirmed value={countyCovidData.totalConfirmed} />
+          </Grid>
+          <Grid item lg={3} sm={6} xs={12}>
+            <Deaths value={countyCovidData.totalDeaths} />
+          </Grid>
+          <Grid item lg={3} sm={6} xs={12}>
+            <Recovered value={countyCovidData.totalRecovered} />
+          </Grid>
+          {/* <Grid item lg={3} xs={12}>
+            <TreatmentCenters location={location} />
+          </Grid> */}
+          <Grid item lg={12} xs={12}>
+            <PerformanceOverTime
+              location={location}
+              countyData={countyCovidData}
+            />
+            <LocalHospitals style={{ marginTop: 20 }} location={location} />
+          </Grid>
+          <Grid item lg={12} xs={12}>
             <TreatmentCenters location={location} />
           </Grid>
         </Grid>
