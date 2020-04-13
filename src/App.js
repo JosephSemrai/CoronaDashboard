@@ -64,7 +64,7 @@ function App() {
               <LocationManager />
               <ScrollReset />
               <GoogleAnalytics />
-              <CookiesNotification />
+              {/* <CookiesNotification /> */}
               <SettingsNotification />
               <Routes />
             </Router>
