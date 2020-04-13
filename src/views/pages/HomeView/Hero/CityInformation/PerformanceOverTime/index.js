@@ -32,7 +32,14 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
       : 1;
   const riskLevel = densityRisk * confirmedRisk * deathRisk;
 
-  const riskNumber = riskLevel * 10;
+  let riskNumber = riskLevel * 10;
+
+  if (riskNumber > 100) {
+    riskNumber = 100;
+  }
+
+  const messageNumber = riskNumber === 100 ? 9 : Math.floor(riskNumber / 10);
+
   const roundedRisk = Math.round(riskNumber);
 
   const riskMessages = [
@@ -88,7 +95,7 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
           </Grid>
 
           <Grid item md={6} xs={12}>
-            <Typography>{riskMessages[Math.floor(riskNumber / 10)]}</Typography>
+            <Typography>{riskMessages[messageNumber]}</Typography>
             <Typography variant="subtitle2">
               This risk is an estimate based on your city and district
               information including death rates, infection counts, density
