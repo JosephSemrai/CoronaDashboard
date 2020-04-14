@@ -13,7 +13,6 @@ import {
   ThemeProvider
 } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import CookiesNotification from 'src/components/CookiesNotification';
 import SettingsNotification from 'src/components/SettingsNotification';
 import GoogleAnalytics from 'src/components/GoogleAnalytics';
 import ScrollReset from 'src/components/ScrollReset';
@@ -21,6 +20,7 @@ import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
 import Routes from 'src/Routes';
 import LocationManager from 'src/components/LocationManager';
+
 const history = createBrowserHistory();
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 

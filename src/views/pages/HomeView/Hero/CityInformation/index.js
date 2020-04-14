@@ -20,6 +20,7 @@ import axios from 'axios';
 import LocalHospitals from './LocalHospitals';
 import Deaths from './Deaths';
 import moment from 'moment';
+import CaseChart from './CaseChart';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -113,13 +114,14 @@ function CityInformation({ className, location, ...rest }) {
           <Grid item lg={3} sm={6} xs={12}>
             <Recovered value={countyCovidData.totalRecovered} />
           </Grid>
-          {/* <Grid item lg={3} xs={12}>
-            <TreatmentCenters location={location} />
-          </Grid> */}
-          <Grid item lg={12} xs={12}>
+          <Grid item lg={3} xs={12}>
+            <CaseChart countyData={countyCovidData} />
+          </Grid>
+          <Grid item lg={9} xs={12}>
             <PerformanceOverTime
               location={location}
               countyData={countyCovidData}
+              style={{ minHeight: '100%' }}
             />
             <LocalHospitals style={{ marginTop: 20 }} location={location} />
           </Grid>

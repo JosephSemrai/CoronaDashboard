@@ -15,7 +15,7 @@ import GenericMoreButton from 'src/components/GenericMoreButton';
 import CircularProgress from '../LocalHospitals/CircularProgress';
 
 const useStyles = makeStyles(() => ({
-  root: {}
+  root: { display: 'flex', flexDirection: 'column', justifyContent: 'center' }
 }));
 
 function PerformanceOverTime({ className, location, countyData, ...rest }) {
@@ -74,13 +74,22 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
     <Card className={clsx(classes.root, className)} {...rest}>
       <CardHeader action={<GenericMoreButton />} title="Risk Analysis" />
       <Divider />
-      <CardContent style={{ minHeight: '30%' }}>
+
+      {/* <Box minHeight="100%"> */}
+      <CardContent
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ display: 'flex', flex: 1 }}
+      >
         <Grid
           container
           direction="row"
           justify="space-around"
           alignItems="center"
           justifyContent="center"
+          justify="center"
+          height="100%"
         >
           <Grid item md={6} xs={12}>
             <Typography align="center" variant="h3" color="textSecondary">
@@ -122,6 +131,7 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
           </Grid>
         </Grid>
       </CardContent>
+      {/* </Box> */}
     </Card>
   );
 }
