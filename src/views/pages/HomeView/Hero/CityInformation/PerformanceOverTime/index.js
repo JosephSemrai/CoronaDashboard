@@ -92,7 +92,7 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
           height="100%"
         >
           <Grid item md={6} xs={12}>
-            <Typography align="center" variant="h3" color="textSecondary">
+            <Typography align="center" variant="h3" color="textPrimary">
               Your risk:
             </Typography>
             <Grid
@@ -128,7 +128,9 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
           </Grid>
 
           <Grid item md={6} xs={12}>
-            <Typography>{riskMessages[messageNumber]}</Typography>
+            <Typography color="textPrimary">
+              {riskMessages[messageNumber]}
+            </Typography>
             <Typography variant="subtitle2">
               <Box fontStyle="italic" mt={2}>
                 This risk is an abstract value estimated by your city and

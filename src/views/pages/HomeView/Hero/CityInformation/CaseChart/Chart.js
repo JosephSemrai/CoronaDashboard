@@ -22,16 +22,19 @@ function Chart({ className, data: dataProp, labels, ...rest }) {
     const greenGradient = ctx.createLinearGradient(0, 0, 0, 400);
 
     yellowGradient.addColorStop(0, fade(yellow[800], 0.9));
-    yellowGradient.addColorStop(0.9, 'rgba(255,255,255,0)');
-    yellowGradient.addColorStop(1, 'rgba(255,255,255,0)');
+    yellowGradient.addColorStop(1, fade(yellow[800], 0.1));
+    // yellowGradient.addColorStop(0.9, 'rgba(255,255,255,0)');
+    // yellowGradient.addColorStop(1, 'rgba(255,255,255,0)');
 
     redGradient.addColorStop(0, fade(red[800], 0.9));
-    redGradient.addColorStop(0.9, 'rgba(255,255,255,0)');
-    redGradient.addColorStop(1, 'rgba(255,255,255,0)');
+    redGradient.addColorStop(1, fade(red[800], 0.1));
+    // redGradient.addColorStop(0.9, 'rgba(255,255,255,0)');
+    // redGradient.addColorStop(1, 'rgba(255,255,255,0)');
 
     greenGradient.addColorStop(0, fade(green[800], 0.9));
-    greenGradient.addColorStop(0.9, 'rgba(255,255,255,0)');
-    greenGradient.addColorStop(1, 'rgba(255,255,255,0)');
+    greenGradient.addColorStop(1, fade(green[800], 0.1));
+    // greenGradient.addColorStop(0.9, 'rgba(255,255,255,0)');
+    // greenGradient.addColorStop(1, 'rgba(255,255,255,0)');
 
     return {
       datasets: [
