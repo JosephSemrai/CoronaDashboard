@@ -30,7 +30,7 @@ function CaseChart({ className, countyData, ...rest }) {
         countyData.totalDeaths,
         countyData.totalRecovered
       ],
-      labels: ['Confirmed', 'Deaths', 'Recovered']
+      labels: ['Confirmed', 'Fatal', 'Recovered']
     }
   };
 
