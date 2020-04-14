@@ -93,9 +93,8 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
         >
           <Grid item md={6} xs={12}>
             <Typography align="center" variant="h3" color="textSecondary">
-              Your Risk Level Is:
+              Your risk:
             </Typography>
-
             <Grid
               style={{ marginTop: 10 }}
               container
@@ -108,14 +107,24 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
                 <CircularProgress value={riskNumber} />
               </Grid>
             </Grid>
-
-            <Typography
-              align="center"
-              variant="h1"
-              color={riskNumber > 50 ? 'error' : 'primary'}
-            >
-              {riskNumber === NaN ? 'Loading...' : roundedRisk} / 100
-            </Typography>
+            <Box display="flex" justifyContent="center" alignItems="center">
+              <Box display="inline-block">
+                <Typography
+                  align="center"
+                  variant="h1"
+                  color={riskNumber > 50 ? 'error' : 'primary'}
+                  style={{ marginTop: 10, display: 'inline-block' }}
+                >
+                  {riskNumber === NaN ? 'Loading...' : roundedRisk}
+                </Typography>
+                <Typography
+                  color="textSecondary"
+                  style={{ display: 'inline-block' }}
+                >
+                  /100
+                </Typography>
+              </Box>
+            </Box>
           </Grid>
 
           <Grid item md={6} xs={12}>
