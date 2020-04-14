@@ -28,7 +28,7 @@ function FAQS({ className, ...rest }) {
     <div className={clsx(classes.root, className)} {...rest}>
       <Container maxWidth="lg">
         <Typography variant="h1" color="textPrimary">
-          FAQS
+          FAQ
         </Typography>
         <Box my={3}>
           <Divider />

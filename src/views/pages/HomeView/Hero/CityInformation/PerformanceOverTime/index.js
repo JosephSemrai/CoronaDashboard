@@ -131,10 +131,12 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
             <Typography>{riskMessages[messageNumber]}</Typography>
             <Typography variant="subtitle2">
               <Box fontStyle="italic" mt={2}>
-                This risk is an estimate based on your city and district
-                information including death rates, infection counts, density
-                information, and other data. Please consult official news
-                sources in your area for more detailed and accurate information.
+                This risk is an abstract value estimated by your city and
+                district information including death rates, infection counts,
+                density information, and other data. The data and information on
+                this page may be inaccurate and should only be taken as an
+                unofficial recommendation. Please refer to reputable sources for
+                verified information.
               </Box>
             </Typography>
           </Grid>
