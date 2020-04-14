@@ -21,6 +21,7 @@ import LocalHospitals from './LocalHospitals';
 import Deaths from './Deaths';
 import moment from 'moment';
 import CaseChart from './CaseChart';
+import HospitalUpdates from './HospitalUpdates';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -92,7 +93,7 @@ function CityInformation({ className, location, ...rest }) {
 
         <Typography
           variant="h3"
-          style={{ marginBottom: 15 }}
+          style={{ marginBottom: 25 }}
           color="textSecondary"
         >
           County information last updated{' '}
@@ -123,10 +124,9 @@ function CityInformation({ className, location, ...rest }) {
               countyData={countyCovidData}
               style={{ minHeight: '100%' }}
             />
-            <LocalHospitals style={{ marginTop: 20 }} location={location} />
           </Grid>
           <Grid item lg={12} xs={12}>
-            <TreatmentCenters location={location} />
+            <LocalHospitals location={location} />
           </Grid>
         </Grid>
       </Container>

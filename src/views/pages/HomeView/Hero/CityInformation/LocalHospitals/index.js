@@ -14,6 +14,7 @@ import {
   TableCell,
   TableRow,
   Typography,
+  Link,
   colors,
   makeStyles
 } from '@material-ui/core';
@@ -24,7 +25,9 @@ import GenericMoreButton from 'src/components/GenericMoreButton';
 import CircularProgress from './CircularProgress';
 
 const useStyles = makeStyles(theme => ({
-  root: {},
+  root: {
+    maxWidth: '100%'
+  },
   image: {
     flexShrink: 0,
     height: 56,
@@ -42,24 +45,30 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function MostProfitableProducts({ className, ...rest }) {
+function MostProfitableProducts({ className, location, ...rest }) {
   const classes = useStyles();
   const isMountedRef = useIsMountedRef();
-  const [products, setProducts] = useState(null);
+  const [treatmentCenters, setTreatmentCenters] = useState();
 
-  const getProducts = useCallback(() => {
-    axios.get('/api/reports/profitable-products').then(response => {
-      if (isMountedRef.current) {
-        setProducts(response.data.products);
-      }
-    });
+  const getTreatmentCenters = useCallback(() => {
+    const sanitizedState = location.state.toLowerCase().replace(/\s/g, '-');
+    axios
+      .get(
+        `https://covid-19-testing.github.io/locations/${sanitizedState}/complete.json`
+      )
+      .then(res => {
+        if (isMountedRef.current) {
+          setTreatmentCenters(res.data);
+        }
+      })
+      .catch(e => alert(e));
   }, [isMountedRef]);
 
   useEffect(() => {
-    getProducts();
-  }, [getProducts]);
+    getTreatmentCenters();
+  }, [getTreatmentCenters]);
 
-  if (!products) {
+  if (!treatmentCenters) {
     return null;
   }
 
@@ -67,48 +76,50 @@ function MostProfitableProducts({ className, ...rest }) {
     <Card className={clsx(classes.root, className)} {...rest}>
       <CardHeader
         action={<GenericMoreButton />}
-        title="Most Profitable Products"
+        title="Local Treatment Center Updates"
       />
       <Divider />
-      <PerfectScrollbar>
-        <Box minWidth={700}>
-          <Table>
-            <TableBody>
-              {products.map(product => (
-                <TableRow hover key={product.id}>
-                  <TableCell>
-                    <Box display="flex" alignItems="center">
-                      <img
-                        alt="Product"
-                        className={classes.image}
-                        src={product.image}
-                      />
-                      <Box ml={2}>
-                        <Typography variant="h6" color="textPrimary">
-                          {product.name}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary">
-                          <span className={classes.subscriptions}>
-                            {product.subscriptions}
-                          </span>{' '}
-                          Active
-                        </Typography>
-                      </Box>
+      {/* <PerfectScrollbar> */}
+      <Box overflow="auto">
+        <Table style={{ tableLayout: 'fixed', width: '100%' }}>
+          <TableBody>
+            {treatmentCenters.map(center => (
+              <TableRow hover key={center.name}>
+                <TableCell>
+                  <Box display="flex" alignItems="center">
+                    <Box ml={2}>
+                      <Typography variant="h6" color="textPrimary">
+                        {center.name}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary">
+                        <span className={classes.subscriptions}>
+                          {center.physical_address
+                            ? `${center.physical_address[0].city} | 
+            ${center.physical_address[0].postal_code}`
+                            : 'No Addresses Available'}
+                        </span>
+                      </Typography>
+                      <Link
+                        href={`tel:${
+                          center.phones
+                            ? center.phones[0].number
+                            : 'No Phones Available'
+                        }`}
+                        variant="h5"
+                      >
+                        {center.phones
+                          ? center.phones[0].number
+                          : 'No Phones Available'}
+                      </Link>
                     </Box>
-                  </TableCell>
-                  <TableCell>
-                    <Typography variant="h6" color="textPrimary">
-                      Price
-                    </Typography>
-                    <Typography noWrap variant="body2" color="textSecondary">
-                      <span className={classes.value}>
-                        {product.currency}
-                        {product.price}
-                      </span>{' '}
-                      monthly
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
+                  </Box>
+                </TableCell>
+                <TableCell width="80%">
+                  <Typography variant="body2" color="textPrimary">
+                    {center.description}
+                  </Typography>
+                </TableCell>
+                {/* <TableCell>
                     <Box
                       display="flex"
                       alignItems="center"
@@ -128,13 +139,13 @@ function MostProfitableProducts({ className, ...rest }) {
                       </Box>
                       <CircularProgress value={product.progress} />
                     </Box>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Box>
-      </PerfectScrollbar>
+                  </TableCell> */}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Box>
+      {/* </PerfectScrollbar> */}
       <Box p={2} display="flex" justifyContent="flex-end">
         <Button component={RouterLink} size="small" to="#">
           See all
