@@ -87,7 +87,7 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
     } else {
       setNotEnoughData(true);
     }
-  }, [setNotEnoughData]);
+  }, [setNotEnoughData, location, countyData]);
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
