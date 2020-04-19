@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -62,14 +61,14 @@ function MostProfitableProducts({ className, location, ...rest }) {
         }
       })
       .catch(e => alert(e));
-  }, [isMountedRef]);
+  }, [isMountedRef, location.state]);
 
   useEffect(() => {
     getTreatmentCenters();
   }, [getTreatmentCenters]);
 
   if (!treatmentCenters) {
-    return null;
+    return <CircularProgress />;
   }
 
   return (
@@ -79,7 +78,6 @@ function MostProfitableProducts({ className, location, ...rest }) {
         title="Local Treatment Center Updates"
       />
       <Divider />
-      {/* <PerfectScrollbar> */}
       <Box overflow="auto">
         <Table style={{ tableLayout: 'fixed', width: '100%' }}>
           <TableBody>
@@ -119,33 +117,11 @@ function MostProfitableProducts({ className, location, ...rest }) {
                     {center.description}
                   </Typography>
                 </TableCell>
-                {/* <TableCell>
-                    <Box
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="flex-end"
-                    >
-                      <Box mr={2}>
-                        <Typography
-                          align="right"
-                          variant="h6"
-                          color="textPrimary"
-                        >
-                          {product.progress}%
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary">
-                          Conversion Rate
-                        </Typography>
-                      </Box>
-                      <CircularProgress value={product.progress} />
-                    </Box>
-                  </TableCell> */}
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </Box>
-      {/* </PerfectScrollbar> */}
       <Box p={2} display="flex" justifyContent="flex-end">
         <Button component={RouterLink} size="small" to="#">
           See all

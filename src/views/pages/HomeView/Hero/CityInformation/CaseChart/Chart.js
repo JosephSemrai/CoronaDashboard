@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { Line, Bar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { fade, makeStyles, useTheme } from '@material-ui/core';
 import { red, green, yellow } from '@material-ui/core/colors/';
 

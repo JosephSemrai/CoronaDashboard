@@ -9,7 +9,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.default,
     paddingTop: 128,
@@ -24,31 +24,15 @@ function CTA({ className, ...rest }) {
   const classes = useStyles();
 
   return (
-    <div
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <div className={clsx(classes.root, className)} {...rest}>
       <Container maxWidth="lg">
-        <Typography
-          variant="h1"
-          align="center"
-          color="textPrimary"
-        >
+        <Typography variant="h1" align="center" color="textPrimary">
           Need more information? Interested in helping build this project?
         </Typography>
-        <Typography
-          variant="h1"
-          align="center"
-          color="secondary"
-        >
+        <Typography variant="h1" align="center" color="secondary">
           View our documentation
         </Typography>
-        <Box
-          mt={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box mt={6} display="flex" justifyContent="center" alignItems="center">
           <Button
             color="secondary"
             component="a"

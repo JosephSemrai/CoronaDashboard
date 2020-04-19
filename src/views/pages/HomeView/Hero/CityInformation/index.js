@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
-  Box,
   Container,
   Grid,
   Typography,
@@ -11,17 +10,14 @@ import {
 } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { updateLocation } from 'src/reducers/locationSlice';
-import TreatmentCenters from './TreatmentCenters';
 import Density from './Density';
 import PerformanceOverTime from './PerformanceOverTime';
 import TotalConfirmed from './TotalConfirmed';
 import Recovered from './Recovered';
-import axios from 'axios';
 import LocalHospitals from './LocalHospitals';
 import Deaths from './Deaths';
 import moment from 'moment';
 import CaseChart from './CaseChart';
-import HospitalUpdates from './HospitalUpdates';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -76,7 +72,7 @@ function CityInformation({ className, location, ...rest }) {
 
         console.log(countyData);
       });
-  }, []);
+  }, [location.county, location.state]);
 
   return (
     <div className={clsx(classes.root, className)}>

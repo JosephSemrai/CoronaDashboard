@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
   Avatar,
-  Button,
   Box,
   Container,
   Grid,
   Typography,
+  Button,
   makeStyles
 } from '@material-ui/core';
 
@@ -38,7 +38,7 @@ function ActionPlan({ className, ...rest }) {
           Action Plan
         </Typography>
         <Typography variant="h1" align="center" color="textPrimary">
-          What You Should Do Next
+          Suggested Actions
         </Typography>
         <Box mt={8}>
           <Grid container spacing={3}>
@@ -57,6 +57,15 @@ function ActionPlan({ className, ...rest }) {
                     instruction. If you are having trouble breathing, feel
                     pressure in your chest, have bluish lips, or feel sudden
                     confusion, visit a hospital.
+                    <br />
+                    <Button
+                      variant="contained"
+                      component="a"
+                      href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"
+                      target="_blank"
+                    >
+                      View COVID-19 on CDC.gov
+                    </Button>
                   </Typography>
                 </Box>
               </Box>
@@ -94,14 +103,6 @@ function ActionPlan({ className, ...rest }) {
                     If you are experiencing anxiety about the pandemic, call a
                     therapist or trusted person.
                   </Typography>
-                  {/* <Button
-                    variant="outlined"
-                    component="a"
-                    href="https://google.com"
-                    target="_blank"
-                  >
-                    Example HREF
-                  </Button> */}
                 </Box>
               </Box>
             </Grid>

@@ -67,11 +67,10 @@ function Initial({ className, ...rest }) {
               </Typography>
               <Box mt={3}>
                 <Typography variant="body1" color="textSecondary">
-                  Local information for COVID-19 including a risk analysis,
-                  updates from local hospitals, an action plan, and more. We'll
-                  provide an analysis of your area and give you up to date
+                  We'll provide an analysis of your area and give you up to date
                   statistics on your local confirmed case count, population
-                  density, risk levels, and much more.
+                  density, risk levels, local health updates, an action plan,
+                  and more.
                 </Typography>
               </Box>
               <Box mt={3}>

@@ -10,7 +10,6 @@ import {
   CircularProgress
 } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import Label from 'src/components/Label';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,9 +17,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between'
-  },
-  label: {
-    marginLeft: theme.spacing(1)
   },
   avatar: {
     backgroundColor: theme.palette.secondary.main,
@@ -30,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Density({ className, value, ...rest }) {
+function Recovered({ className, value, ...rest }) {
   const classes = useStyles();
 
   return (
@@ -61,9 +57,9 @@ function Density({ className, value, ...rest }) {
   );
 }
 
-Density.propTypes = {
+Recovered.propTypes = {
   value: PropTypes.string,
   className: PropTypes.string
 };
 
-export default Density;
+export default Recovered;

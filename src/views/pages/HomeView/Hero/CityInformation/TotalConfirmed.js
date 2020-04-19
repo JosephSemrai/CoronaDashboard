@@ -9,7 +9,6 @@ import {
   makeStyles,
   CircularProgress
 } from '@material-ui/core';
-import Label from 'src/components/Label';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 
 const useStyles = makeStyles(theme => ({
@@ -19,9 +18,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'space-between'
   },
-  label: {
-    marginLeft: theme.spacing(1)
-  },
   avatar: {
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.contrastText,
@@ -30,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Density({ className, value, ...rest }) {
+function TotalConfirmed({ className, value, ...rest }) {
   const classes = useStyles();
 
   return (
@@ -61,9 +57,9 @@ function Density({ className, value, ...rest }) {
   );
 }
 
-Density.propTypes = {
+TotalConfirmed.propTypes = {
   value: PropTypes.string,
   className: PropTypes.string
 };
 
-export default Density;
+export default TotalConfirmed;

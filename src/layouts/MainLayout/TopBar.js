@@ -14,7 +14,6 @@ import {
   makeStyles
 } from '@material-ui/core';
 import { APP_VERSION } from 'src/config';
-import Logo from 'src/components/Logo';
 import Cookies from 'js-cookie';
 import useSettings from 'src/hooks/useSettings';
 import { THEMES } from 'src/constants';
@@ -27,9 +26,6 @@ const useStyles = makeStyles(theme => ({
   },
   toolbar: {
     height: 64
-  },
-  logo: {
-    marginRight: theme.spacing(2)
   },
   link: {
     fontWeight: theme.typography.fontWeightMedium,

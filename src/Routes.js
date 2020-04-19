@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { lazy, Suspense, Fragment } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import DocsLayout from 'src/layouts/DocsLayout';

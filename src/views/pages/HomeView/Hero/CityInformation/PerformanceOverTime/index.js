@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
@@ -8,6 +8,7 @@ import {
   Divider,
   Box,
   Typography,
+  CircularProgress as CircularLoader,
   Grid,
   makeStyles
 } from '@material-ui/core';
@@ -20,13 +21,17 @@ const useStyles = makeStyles(() => ({
 
 function PerformanceOverTime({ className, location, countyData, ...rest }) {
   const classes = useStyles();
+  const [isLoading, setIsLoading] = useState(true);
+  const [notEnoughData, setNotEnoughData] = useState(false);
 
   let densityRisk =
-    location.density && location.density != 0
+    location.density && location.density !== 0
       ? 1 + location.density / 10000
       : 1;
   let confirmedRisk =
-    countyData.totalConfirmed && location.population && location.population != 0
+    countyData.totalConfirmed &&
+    location.population &&
+    location.population !== 0
       ? 1 + (countyData.totalConfirmed / location.population) * 8
       : 1;
   let deathRisk =
@@ -70,6 +75,20 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
     'Level 10: The virus is extremely serious in your area and death rates are very high. Medical facilities are overwhelmed, and medical supplies are low. Healthcare workers are contracting the virus. Do not go to a hospital unless your condition/symptoms are serious. Follow other local guidelines and precautionary measures. Stay at home!'
   ];
 
+  useEffect(() => {
+    if (
+      location.density &&
+      countyData.totalConfirmed &&
+      location.population &&
+      countyData.totalDeaths
+    ) {
+      setNotEnoughData(false);
+      setIsLoading(false);
+    } else {
+      setNotEnoughData(true);
+    }
+  });
+
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
       <CardHeader action={<GenericMoreButton />} title="Risk Analysis" />
@@ -85,7 +104,6 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
         <Grid
           container
           direction="row"
-          justify="space-around"
           alignItems="center"
           justifyContent="center"
           justify="center"
@@ -115,7 +133,8 @@ function PerformanceOverTime({ className, location, countyData, ...rest }) {
                   color={riskNumber > 50 ? 'error' : 'primary'}
                   style={{ marginTop: 10, display: 'inline-block' }}
                 >
-                  {riskNumber === NaN ? 'Loading...' : roundedRisk}
+                  {isLoading ? <CircularLoader /> : roundedRisk}
+                  {notEnoughData ? 'N/A' : null}
                 </Typography>
                 <Typography
                   color="textSecondary"

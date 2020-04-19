@@ -31,7 +31,6 @@
 // function NewsFeed({ className, ...rest }) {
 //   const classes = useStyles();
 //   const [newsArticles, setNewsArticles] = useState();
-
 //   useEffect(async () => {
 //     const response = await fetch(
 //       'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=coronavirus&safeSearch=false',
@@ -51,19 +50,19 @@
 
 //   // console.logs json
 
-//   // fetch(
-//   //   'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=coronavirus&safeSearch=false',
-//   //   {
-//   //     method: 'GET',
-//   //     headers: {
-//   //       'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
-//   //       'x-rapidapi-key': '3484f1955bmshe25cf1f077ea64cp1051a4jsn6ecca2c7767e',
-//   //       'Content-Type': 'application/json'
-//   //     }
-//   //   }
-//   // )
-//   //   .then(x => x.json())
-//   //   .then(console.log);
+// fetch(
+//   'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=coronavirus&safeSearch=false',
+//   {
+//     method: 'GET',
+//     headers: {
+//       'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+//       'x-rapidapi-key': PULL REQUEST LEAKED KEY, WILL IMPLEMENT BACKEND LATER
+//       'Content-Type': 'application/json'
+//     }
+//   }
+// )
+//   .then(x => x.json())
+//   .then(console.log);
 //   return (
 //     <div className={clsx(classes.root, className)} {...rest}>
 //       <Container maxWidth="md">

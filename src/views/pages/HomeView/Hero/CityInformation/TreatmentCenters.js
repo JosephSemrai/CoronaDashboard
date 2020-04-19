@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import {
   Typography,
@@ -6,7 +5,6 @@ import {
   CardContent,
   Grid,
   Link,
-  Button,
   CircularProgress,
   makeStyles
 } from '@material-ui/core';
@@ -63,7 +61,6 @@ function TreatmentCenters({ className, location, ...rest }) {
   );
 
   useEffect(() => {
-    // eslint-disable-next-line react/prop-types
     const sanitizedState = location.state.toLowerCase().replace(/\s/g, '-');
     axios
       .get(

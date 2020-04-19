@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Hero from './Hero';
 import ActionPlan from './ActionPlan';
-import NewsFeed from './NewsFeed';
+// import NewsFeed from './NewsFeed';
 import CTA from './CTA';
 import FAQS from './FAQS';
 
@@ -18,9 +18,9 @@ function HomeView() {
     <Page className={classes.root} title="Home">
       <Hero />
       <ActionPlan />
-      <NewsFeed />
-      {/* <CTA /> */}
+      {/* <NewsFeed /> */}
       <FAQS />
+      <CTA />
     </Page>
   );
 }
